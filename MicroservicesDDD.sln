@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "OrderService\OrderService.csproj", "{59DB1E18-8838-411F-A364-0C2BBAB85564}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService", "PaymentService\PaymentService.csproj", "{B163886B-F176-4A34-BEC9-C17FD450C0B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59DB1E18-8838-411F-A364-0C2BBAB85564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59DB1E18-8838-411F-A364-0C2BBAB85564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59DB1E18-8838-411F-A364-0C2BBAB85564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59DB1E18-8838-411F-A364-0C2BBAB85564}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B163886B-F176-4A34-BEC9-C17FD450C0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B163886B-F176-4A34-BEC9-C17FD450C0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B163886B-F176-4A34-BEC9-C17FD450C0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B163886B-F176-4A34-BEC9-C17FD450C0B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
