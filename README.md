@@ -43,7 +43,7 @@ Verify Communication
 
 Once running, create an order by making a POST request:
 
-      curl -X POST "http://localhost:[PORT]/orders" -H "Content-Type: application/json" -d '{"customerId":"123", "amount": 100.50}'
+      curl -X POST "http://localhost:5041/orders" -H "Content-Type: application/json" -d '{"customerId":"123", "amount": 100.50}'
 
 
 ## Future Improvements
