@@ -1,4 +1,4 @@
-# Microservices DDD Example
+# Microservices DDD
 
 ## Overview
 
