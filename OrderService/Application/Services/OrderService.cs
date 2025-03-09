@@ -16,11 +16,16 @@ namespace OrderService.Application.Services
             _publishEndpoint = publishEndpoint;
         }
 
-        public async Task CreateOrderAsync(string customerId, decimal amount)
+        public async Task<Order> CreateOrderAsync(string customerId, decimal amount)
         {
             var order = new Order { Id = Guid.NewGuid(), CustomerId = customerId, Amount = amount };
             await _orderRepository.AddOrderAsync(order);
             await _publishEndpoint.Publish(new OrderCreatedEvent(order.Id, order.Amount, order.CustomerId));
+            return order;
         }
+
+        public async Task<Order[]> GetOrdersAsync() => await _orderRepository.GetOrdersAsync();
+
+        public async Task<Order?> GetOrderAsync(Guid orderId) => await _orderRepository.GetOrderByIdAsync(orderId);
     }
 }
