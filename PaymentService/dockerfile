@@ -1,0 +1,28 @@
+# Use an official .NET runtime as a base image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy shared library project and restore dependencies
+COPY ["SharedService/SharedService.csproj", "SharedService/"]
+COPY ["PaymentService/PaymentService.csproj", "PaymentService/"]
+RUN dotnet restore "PaymentService/PaymentService.csproj"
+
+# Copy everything and build the shared library and the main project
+COPY . .
+WORKDIR "/src/SharedService"
+RUN dotnet build "SharedService.csproj" -c Release
+
+WORKDIR "/src/PaymentService"
+RUN dotnet publish "PaymentService.csproj" -c Release -o /app/publish
+
+# Final stage
+FROM base AS final
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "PaymentService.dll"]
