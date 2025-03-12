@@ -24,6 +24,7 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
 
   orderservice:
     build:
@@ -40,12 +41,11 @@ services:
     env_file:
       - .env
     environment:
-      - ConnectionStrings__DefaultConnection=Server=postgres;Database=${POSTGRES_ORDER_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
+      - ConnectionStrings__DefaultConnection=Server=postgres;Database=${POSTGRES_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
       - RabbitMQ__Host=${RABBITMQ_HOST}
       - RabbitMQ__Port=${RABBITMQ_PORT}
       - RabbitMQ__Username=${RABBITMQ_USER}
       - RabbitMQ__Password=${RABBITMQ_PASS}
-
 
   paymentservice:
     build:
@@ -62,7 +62,7 @@ services:
     env_file:
       - .env
     environment:
-      - ConnectionStrings__DefaultConnection=Server=postgres;Database=${POSTGRES_PAYMENT_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
+      - ConnectionStrings__DefaultConnection=Server=postgres;Database=${POSTGRES_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
       - RabbitMQ__Host=${RABBITMQ_HOST}
       - RabbitMQ__Port=${RABBITMQ_PORT}
       - RabbitMQ__Username=${RABBITMQ_USER}
