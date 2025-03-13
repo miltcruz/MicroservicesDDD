@@ -1,6 +1,6 @@
-using OrderService.Domain.Entities;
+using SharedService.Domain.Entities;
 
-namespace OrderService.Infrastructure.Repositories
+namespace SharedService.Infrastructure.Repositories
 {
     public interface IOrderRepository
     {

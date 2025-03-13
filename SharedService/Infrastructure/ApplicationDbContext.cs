@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using OrderService.Domain.Entities;
+using SharedService.Domain.Entities;
 
-namespace OrderService.Infrastructure
+namespace SharedService.Infrastructure
 {
     public class ApplicationDbContext : DbContext
     {

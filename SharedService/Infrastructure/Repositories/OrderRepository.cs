@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using OrderService.Domain.Entities;
+using SharedService.Domain.Entities;
 
-namespace OrderService.Infrastructure.Repositories
+namespace SharedService.Infrastructure.Repositories
 {
     public class OrderRepository : IOrderRepository
     {

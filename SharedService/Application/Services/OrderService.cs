@@ -1,9 +1,9 @@
 using MassTransit;
-using OrderService.Domain.Entities;
-using SharedService.Events;
-using OrderService.Infrastructure.Repositories;
+using SharedService.Domain.Entities;
+using SharedService.Domain.Events;
+using SharedService.Infrastructure.Repositories;
 
-namespace OrderService.Application.Services
+namespace SharedService.Application.Services
 {
     public class OrderSrv
     {

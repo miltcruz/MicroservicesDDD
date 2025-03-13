@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using OrderService.Application.Services;
-using OrderService.Domain.Entities;
+using SharedService.Application.Services;
 
 namespace OrderService.Controllers
 {
@@ -25,7 +24,7 @@ namespace OrderService.Controllers
         [HttpGet("read")]
         public async Task<IActionResult> GetOrders()
         {
-            Order[] orders = await _orderService.GetOrdersAsync();
+            var orders = await _orderService.GetOrdersAsync();
             return Ok(new { orders });
         }
 
