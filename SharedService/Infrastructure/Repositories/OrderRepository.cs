@@ -23,5 +23,11 @@ namespace SharedService.Infrastructure.Repositories
         public async Task<Order[]> GetOrdersAsync() => await _context.Orders.ToArrayAsync();
 
         public async Task<Order?> GetOrderByIdAsync(Guid orderId) => await _context.Orders.FindAsync(orderId);
+
+        public async Task UpdateOrderAsync(Order order)
+        {
+            _context.Orders.Update(order);
+            await _context.SaveChangesAsync();
+        }
     }
 }

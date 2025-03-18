@@ -7,5 +7,7 @@ namespace SharedService.Infrastructure.Repositories
         Task AddOrderAsync(Order order);
         Task<Order?> GetOrderByIdAsync(Guid orderId);
         Task<Order[]> GetOrdersAsync();
+
+        Task UpdateOrderAsync(Order order);
     }
 }

@@ -2,18 +2,18 @@ using System;
 using System.Threading.Tasks;
 using MassTransit;
 using SharedService.Domain.Events;
-using SharedService.Infrastructure;
+using SharedService.Application.Services;
 using SharedService.Domain.Entities;
 
 namespace PaymentService.Consumers
 {
     public class OrderCreatedConsumer : IConsumer<OrderCreatedEvent>
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly OrderSrv _orderService;
 
-        public OrderCreatedConsumer(ApplicationDbContext dbContext)
+        public OrderCreatedConsumer(OrderSrv orderService)
         {
-            _dbContext = dbContext;
+            _orderService = orderService;
         }
 
         public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
@@ -24,7 +24,15 @@ namespace PaymentService.Consumers
             // Simulate Payment Processing
             await Task.Delay(1000);
 
-            Console.WriteLine($"Payment successful for Order {order.OrderId}");
+            await _orderService.UpdateOrderAsync(new Order { 
+                Id = order.OrderId, 
+                CustomerId = order.CustomerId, 
+                Amount = order.Amount, 
+                IsPaymentSuccessful = true,
+                UpdatedAt = DateTime.UtcNow
+            });
+
+            Console.WriteLine($"Payment successful for Order {order}");
         }
     }
 }

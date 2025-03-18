@@ -27,5 +27,7 @@ namespace SharedService.Application.Services
         public async Task<Order[]> GetOrdersAsync() => await _orderRepository.GetOrdersAsync();
 
         public async Task<Order?> GetOrderAsync(Guid orderId) => await _orderRepository.GetOrderByIdAsync(orderId);
+
+        public async Task UpdateOrderAsync(Order order) => await _orderRepository.UpdateOrderAsync(order);
     }
 }
