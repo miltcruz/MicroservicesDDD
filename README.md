@@ -20,37 +20,18 @@ This project demonstrates a microservices-based architecture using Domain-Driven
 
 Clone the Repository
 
-      git clone https://github.com/your-repo/microservices-ddd.git
+      git clone https://github.com/miltcruz/MicroservicesDDD
       cd microservices-ddd
 
 Start Dependencies (RabbitMQ & Redis) with Docker
 
-      docker-compose up -d
-
-Build & Run Services
-
-      Run Order Service
-
-      cd OrderService
-      dotnet run
-
-Run Payment Service
-
-      cd PaymentService
-      dotnet run
+      docker compose up -d --build
 
 Verify Communication
 
 Once running, create an order by making a POST request:
 
       curl -X POST "http:http://localhost:5001/api/order/create" -H "Content-Type: application/json" -d '{"customerId":"123", "amount": 100.50}'
-
-
-## Future Improvements
-
-- Add authentication & authorization with Azure AD
-- Implement Next.js frontend for order tracking
-- Optimize database storage with SQL Server
 
 
 ## License
