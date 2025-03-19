@@ -6,5 +6,7 @@ export interface Order {
     id: string;
     customerId: string;
     amount: number;
-    createdAt: string;
+    isPaymentSuccessful: boolean;
+    createdAt: Date;
+    updateddAt: Date;
 }

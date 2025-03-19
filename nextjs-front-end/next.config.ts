@@ -1,11 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*', // Matches any request to /api/* from the frontend
-        destination: 'http://localhost:5041/api/:path*', // Redirects to your backend API
+        source: "/api/:path*",
+        destination: `${process.env.NEXT_PUBLIC_API_BASE_URL}/:path*`, // Dynamically use the environment variable
       },
     ];
   },

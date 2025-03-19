@@ -1,14 +1,17 @@
 import axios from "axios";
 import { Orders } from "../types/order";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 const ORDER_ENDPOINT = "/order";
 const CREATE_ORDER = "/create";
 const GET_ORDERS = "/read";
+
 const api = axios.create({
-    baseURL: 'http://localhost:5041/api', // base URL
+    baseURL: BASE_URL,
     headers: {
-        'Content-Type': 'application/json', // content type
-    }
+        "Content-Type": "application/json",
+    },
 });
 
 export const createOrder = async (customerId: string, amount: number) => {
